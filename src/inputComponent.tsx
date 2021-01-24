@@ -12,7 +12,7 @@ class FileInput extends React.Component<{}, { question: string }> {
 
   async updateQuestion(event: { preventDefault: () => void }) {
     event.preventDefault();
-    const url = "http://localhost:5000/getQuestion";
+    const url = "https://random-questions-backend.herokuapp.com/getQuestion";
     let result = await axios.get(url);
     let question = result.data;
     this.setState({ question: question });
