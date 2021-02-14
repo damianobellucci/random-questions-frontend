@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const Form = (props: any) => {
   const newChapter = React.useRef<HTMLInputElement>(null);
   const [showAddChapter, updateShowAddChapter] = useState(false);
 
-  const createChapter = (el: any) => {
-    alert(el.current.value);
+  const createChapter = async (el: any) => {
+    let result = await axios.post("http://localhost:8085", {
+      chapter: el.current.value,
+    });
+    console.log(result);
   };
 
   return (
